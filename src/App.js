@@ -3,14 +3,14 @@ import { a, b } from './components/Products/Products';
 import Products from './components/Products/Products';
 import { useState } from 'react';
 import CartContext from './context/CartContext';
+import CartSection from './cart/cart';
+
 function App() {
-  // state variable
-  // inc
-  // dec
+  
   let [cart, setCart] = useState({});
   function increaseQuantity(product) {
     const newCart = { ...cart };
-    // if(cart[product.id])
+    
     if (!newCart[product.id]) {
       newCart[product.id] = {
         ...product,
@@ -38,6 +38,7 @@ function App() {
       <div className="App">
         <Products cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />
       </div>
+      <CartSection/>
     </CartContext.Provider>
   );
 }
